@@ -177,12 +177,15 @@ body.dark .movie-info p {
 }
 
 @media (max-width: 900px) {
+
     .movie-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+
 }
 
 @media (max-width: 650px) {
+
     .movie-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -197,9 +200,11 @@ body.dark .movie-info p {
         width: 100%;
         max-height: 350px;
     }
+
 }
 
 @media (max-width: 450px) {
+
     .movie-grid {
         grid-template-columns: 1fr;
     }
@@ -217,4 +222,5 @@ body.dark .movie-info p {
     .controls button {
         width: 100%;
     }
+
 }

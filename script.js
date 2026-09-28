@@ -7,13 +7,6 @@ const movies = [
         poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
     },
     {
-        title: "Interstellar",
-        genre: "Sci-Fi",
-        rating: 8.7,
-        description: "Explorers travel through space searching for a new home for humanity.",
-        poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
-    },
-    {
         title: "The Dark Knight",
         genre: "Action",
         rating: 9.0,
@@ -28,32 +21,39 @@ const movies = [
         poster: "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
     },
     {
+        title: "Jujutsu Kaisen 0",
+        genre: "Animation",
+        rating: 7.8,
+        description: "Yuta Okkotsu enters Jujutsu High and learns to control the powerful curse connected to his childhood friend.",
+        poster: "https://image.tmdb.org/t/p/w500/m8nyqnn2K7WzxcAKzCxPxuX7Yd1.jpg"
+    },
+    {
+        title: "Hereditary",
+        genre: "Horror",
+        rating: 7.3,
+        description: "A family begins uncovering disturbing secrets after the death of their grandmother.",
+        poster: "https://www.impawards.com/2018/posters/hereditary.jpg"
+    },
+    {
+        title: "Avatar",
+        genre: "Sci-Fi",
+        rating: 7.6,
+        description: "A marine travels to Pandora and becomes caught between his mission and an alien civilization.",
+        poster: "https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg"
+    },
+    {
+        title: "Megamind",
+        genre: "Animation",
+        rating: 7.0,
+        description: "A supervillain defeats his greatest enemy and discovers that being a villain is not as satisfying without a hero to fight.",
+        poster: "https://image.tmdb.org/t/p/w500/uZ9ytt3sPTx62XTfN56ILSuYWRe.jpg"
+    },
+    {
         title: "The Hangover",
         genre: "Comedy",
         rating: 7.7,
         description: "Three friends wake up after a wild night and try to piece together what happened.",
         poster: "https://image.tmdb.org/t/p/w500/A0d5Hf9zqM5c7W8QmK9fY5vR8.jpg"
-    },
-    {
-        title: "The Pursuit of Happyness",
-        genre: "Drama",
-        rating: 8.0,
-        description: "A struggling father works to build a better life for himself and his son.",
-        poster: "https://image.tmdb.org/t/p/w500/lBYOKAMcxIvuk9s9JguqkR9V8dE.jpg"
-    },
-    {
-        title: "Toy Story",
-        genre: "Animation",
-        rating: 8.3,
-        description: "A group of toys comes to life when humans are not around.",
-        poster: "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
-    },
-    {
-        title: "Avengers: Endgame",
-        genre: "Action",
-        rating: 8.2,
-        description: "The Avengers attempt to undo the destruction caused by Thanos.",
-        poster: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
     }
 ];
 

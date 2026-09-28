@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Night</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <h1>Movie Night</h1>
+        <p>Find something worth watching.</p>
+    </header>
+
+    <main class="container">
+
+        <div class="controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search movies..."
+            >
+
+            <select id="genreFilter">
+                <option value="all">All Genres</option>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Animation">Animation</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+            </select>
+
+            <select id="sortRating">
+                <option value="none">Sort by Rating</option>
+                <option value="high">Highest Rating</option>
+                <option value="low">Lowest Rating</option>
+            </select>
+
+            <button id="themeButton">Dark Mode</button>
+
+        </div>
+
+        <section id="movieGrid" class="movie-grid"></section>
+
+    </main>
+
+    <div id="movieModal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close-button">&times;</button>
+
+            <img id="modalPoster" src="" alt="Movie poster">
+
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p id="modalGenre"></p>
+                <p id="modalRating"></p>
+                <p id="modalDescription"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

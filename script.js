@@ -1,4 +1,5 @@
 const movies = [
+
     {
         title: "Inception",
         genre: "Sci-Fi",
@@ -36,12 +37,21 @@ const movies = [
     },
 
     {
-        title: "In the Tall Grass",
-        genre: "Horror",
-        age: "16+",
-        rating: 5.5,
-        description: "After hearing a young boy's cry for help, a brother and sister venture into a vast field of grass and soon discover they cannot escape.",
-        poster: "https://www.impawards.com/2019/posters/in_the_tall_grass.jpg"
+        title: "Toy Story",
+        genre: "Animation",
+        age: "U",
+        rating: 8.3,
+        description: "Woody and Buzz Lightyear must put aside their differences and find their way back to Andy.",
+        poster: "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
+    },
+
+    {
+        title: "Interstellar",
+        genre: "Sci-Fi",
+        age: "U/A",
+        rating: 8.7,
+        description: "A group of explorers travels through a wormhole in search of a new home for humanity.",
+        poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
     },
 
     {
@@ -60,16 +70,8 @@ const movies = [
         rating: 7.0,
         description: "A supervillain defeats his greatest enemy and discovers that being a villain is not as satisfying without a hero to fight.",
         poster: "https://image.tmdb.org/t/p/w500/uZ9ytt3sPTx62XTfN56ILSuYWRe.jpg"
-    },
-
-    {
-        title: "Suicide Squad",
-        genre: "Action",
-        age: "15",
-        rating: 5.9,
-        description: "A secret government agency recruits dangerous criminals for a dangerous mission.",
-        poster: "https://www.impawards.com/2016/posters/suicide_squad.jpg"
     }
+
 ];
 
 
@@ -101,7 +103,10 @@ function displayMovies(movieList) {
         movieCard.classList.add("movie-card");
 
         movieCard.innerHTML = `
-            <img src="${movie.poster}" alt="${movie.title} poster">
+            <img
+                src="${movie.poster}"
+                alt="${movie.title} poster"
+            >
 
             <div class="movie-info">
 
@@ -120,16 +125,17 @@ function displayMovies(movieList) {
                     </button>
 
                     <button class="favorite-button">
-                        ${favorites.includes(movie.title)
-                            ? "♥ Saved"
-                            : "♡ Favorite"}
+                        ${
+                            favorites.includes(movie.title)
+                                ? "♥ Saved"
+                                : "♡ Favorite"
+                        }
                     </button>
 
                 </div>
 
             </div>
         `;
-
 
         const detailsButton =
             movieCard.querySelector(".details-button");
@@ -138,14 +144,12 @@ function displayMovies(movieList) {
             openMovieDetails(movie);
         });
 
-
         const favoriteButton =
             movieCard.querySelector(".favorite-button");
 
         favoriteButton.addEventListener("click", function () {
             toggleFavorite(movie.title);
         });
-
 
         movieGrid.appendChild(movieCard);
     });
@@ -159,7 +163,6 @@ function filterMovies() {
 
     const selectedGenre =
         genreFilter.value;
-
 
     let filteredMovies = movies.filter(function (movie) {
 
@@ -221,7 +224,9 @@ function openMovieDetails(movie) {
 
 
 closeModal.addEventListener("click", function () {
+
     movieModal.style.display = "none";
+
 });
 
 
@@ -256,11 +261,8 @@ themeButton.addEventListener("click", function () {
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
-
         themeButton.textContent = "Light Mode";
-
     } else {
-
         themeButton.textContent = "Dark Mode";
     }
 

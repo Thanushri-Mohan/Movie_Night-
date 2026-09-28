@@ -2,60 +2,76 @@ const movies = [
     {
         title: "Inception",
         genre: "Sci-Fi",
+        age: "12+",
         rating: 8.8,
         description: "A skilled thief enters people's dreams to steal secrets.",
         poster: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg"
     },
+
     {
         title: "The Dark Knight",
         genre: "Action",
+        age: "12+",
         rating: 9.0,
         description: "Batman faces a dangerous criminal who brings chaos to Gotham.",
         poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
     },
+
     {
         title: "Spider-Man: Into the Spider-Verse",
         genre: "Animation",
+        age: "PG",
         rating: 8.4,
         description: "A teenager discovers that there are many versions of Spider-Man.",
         poster: "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
     },
+
     {
         title: "Jujutsu Kaisen 0",
         genre: "Animation",
+        age: "16+",
         rating: 7.8,
         description: "Yuta Okkotsu enters Jujutsu High and learns to control the powerful curse connected to his childhood friend.",
         poster: "https://image.tmdb.org/t/p/w500/m8nyqnn2K7WzxcAKzCxPxuX7Yd1.jpg"
     },
+
     {
-        title: "Hereditary",
+        title: "In the Tall Grass",
         genre: "Horror",
-        rating: 7.3,
-        description: "A family begins uncovering disturbing secrets after the death of their grandmother.",
-        poster: "https://www.impawards.com/2018/posters/hereditary.jpg"
+        age: "16+",
+        rating: 5.5,
+        description: "After hearing a young boy's cry for help, a brother and sister venture into a vast field of grass and soon discover they cannot escape.",
+        poster: "https://www.impawards.com/2019/posters/in_the_tall_grass.jpg"
     },
+
     {
         title: "Avatar",
         genre: "Sci-Fi",
+        age: "12+",
         rating: 7.6,
         description: "A marine travels to Pandora and becomes caught between his mission and an alien civilization.",
         poster: "https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg"
     },
+
     {
         title: "Megamind",
         genre: "Animation",
+        age: "U",
         rating: 7.0,
         description: "A supervillain defeats his greatest enemy and discovers that being a villain is not as satisfying without a hero to fight.",
         poster: "https://image.tmdb.org/t/p/w500/uZ9ytt3sPTx62XTfN56ILSuYWRe.jpg"
     },
+
     {
-        title: "The Hangover",
-        genre: "Comedy",
-        rating: 7.7,
-        description: "Three friends wake up after a wild night and try to piece together what happened.",
-        poster: "https://image.tmdb.org/t/p/w500/A0d5Hf9zqM5c7W8QmK9fY5vR8.jpg"
+        title: "Suicide Squad",
+        genre: "Action",
+        age: "15",
+        rating: 5.9,
+        description: "A secret government agency recruits dangerous criminals for a dangerous mission.",
+        poster: "https://www.impawards.com/2016/posters/suicide_squad.jpg"
     }
 ];
+
 
 const movieGrid = document.getElementById("movieGrid");
 const searchInput = document.getElementById("searchInput");
@@ -67,6 +83,7 @@ const movieModal = document.getElementById("movieModal");
 const closeModal = document.getElementById("closeModal");
 
 let favorites = [];
+
 
 function displayMovies(movieList) {
 
@@ -80,6 +97,7 @@ function displayMovies(movieList) {
     movieList.forEach(function (movie) {
 
         const movieCard = document.createElement("div");
+
         movieCard.classList.add("movie-card");
 
         movieCard.innerHTML = `
@@ -91,6 +109,8 @@ function displayMovies(movieList) {
 
                 <p>Genre: ${movie.genre}</p>
 
+                <p>Age: ${movie.age}</p>
+
                 <p>⭐ ${movie.rating}</p>
 
                 <div class="movie-actions">
@@ -100,13 +120,16 @@ function displayMovies(movieList) {
                     </button>
 
                     <button class="favorite-button">
-                        ${favorites.includes(movie.title) ? "♥ Saved" : "♡ Favorite"}
+                        ${favorites.includes(movie.title)
+                            ? "♥ Saved"
+                            : "♡ Favorite"}
                     </button>
 
                 </div>
 
             </div>
         `;
+
 
         const detailsButton =
             movieCard.querySelector(".details-button");
@@ -115,6 +138,7 @@ function displayMovies(movieList) {
             openMovieDetails(movie);
         });
 
+
         const favoriteButton =
             movieCard.querySelector(".favorite-button");
 
@@ -122,9 +146,11 @@ function displayMovies(movieList) {
             toggleFavorite(movie.title);
         });
 
+
         movieGrid.appendChild(movieCard);
     });
 }
+
 
 function filterMovies() {
 
@@ -133,6 +159,7 @@ function filterMovies() {
 
     const selectedGenre =
         genreFilter.value;
+
 
     let filteredMovies = movies.filter(function (movie) {
 
@@ -146,20 +173,28 @@ function filterMovies() {
         return matchesSearch && matchesGenre;
     });
 
+
     if (sortRating.value === "high") {
+
         filteredMovies.sort(function (a, b) {
             return b.rating - a.rating;
         });
+
     }
 
+
     if (sortRating.value === "low") {
+
         filteredMovies.sort(function (a, b) {
             return a.rating - b.rating;
         });
+
     }
+
 
     displayMovies(filteredMovies);
 }
+
 
 function openMovieDetails(movie) {
 
@@ -172,6 +207,9 @@ function openMovieDetails(movie) {
     document.getElementById("modalGenre").textContent =
         "Genre: " + movie.genre;
 
+    document.getElementById("modalAge").textContent =
+        "Age Rating: " + movie.age;
+
     document.getElementById("modalRating").textContent =
         "Rating: ⭐ " + movie.rating;
 
@@ -181,16 +219,20 @@ function openMovieDetails(movie) {
     movieModal.style.display = "flex";
 }
 
+
 closeModal.addEventListener("click", function () {
     movieModal.style.display = "none";
 });
+
 
 movieModal.addEventListener("click", function (event) {
 
     if (event.target === movieModal) {
         movieModal.style.display = "none";
     }
+
 });
+
 
 function toggleFavorite(movieTitle) {
 
@@ -208,21 +250,28 @@ function toggleFavorite(movieTitle) {
     filterMovies();
 }
 
+
 themeButton.addEventListener("click", function () {
 
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
+
         themeButton.textContent = "Light Mode";
+
     } else {
+
         themeButton.textContent = "Dark Mode";
     }
+
 });
+
 
 searchInput.addEventListener("input", filterMovies);
 
 genreFilter.addEventListener("change", filterMovies);
 
 sortRating.addEventListener("change", filterMovies);
+
 
 displayMovies(movies);
